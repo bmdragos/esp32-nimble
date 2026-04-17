@@ -55,6 +55,7 @@ jobs:
         with:
           default: true
           ldproxy: true
+          version: 1.95.0.0
       - name: Setup | MCU
         if: ${{ matrix.mcu }}
         run: echo "MCU=${{ matrix.mcu }}" >> "$GITHUB_ENV"

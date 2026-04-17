@@ -3,6 +3,7 @@ name = "esp32-nimble"
 version = "0.12.0"
 authors = ["taks <857tn859@gmail.com>"]
 edition = "2024"
+rust-version  = "1.95.0"
 resolver = "2"
 repository = "https://github.com/taks/esp32-nimble"
 license = "Apache-2.0"
