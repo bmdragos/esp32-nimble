@@ -1,12 +1,13 @@
 use num_enum::IntoPrimitive;
 use zerocopy_derive::{Immutable, IntoBytes, KnownLayout, TryFromBytes};
 
-cfg_if::cfg_if! {
-  if #[cfg(cpfd)] {
-    use esp_idf_svc::sys as esp_idf_sys;
-  } else {
-    use super::cpfd_constants as esp_idf_sys;
-  }
+cfg_select! {
+    cpfd => {
+        use esp_idf_svc::sys as esp_idf_sys;
+    }
+    _ => {
+        use super::cpfd_constants as esp_idf_sys;
+    }
 }
 
 #[derive(
