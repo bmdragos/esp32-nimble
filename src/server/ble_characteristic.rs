@@ -42,21 +42,13 @@ cfg_if::cfg_if! {
 
 const NULL_HANDLE: u16 = 0xFFFF;
 
-cfg_if::cfg_if! {
-  if #[cfg(any(
-    all(
-      esp_idf_version_major = "5",
-      esp_idf_version_minor = "4",
-      not(any(esp_idf_version_patch = "0", esp_idf_version_patch = "1"))),
-    all(
-      esp_idf_version_major = "5",
-      esp_idf_version_minor = "5",
-    )
-  ))] {
-    type NimblePropertiesType = u32;
-  } else {
-    type NimblePropertiesType = u16;
-  }
+cfg_select! {
+    esp_idf_version_at_least_5_4_2 => {
+        type NimblePropertiesType = u32;
+    }
+    _ => {
+        type NimblePropertiesType = u16;
+    }
 }
 
 bitflags! {
