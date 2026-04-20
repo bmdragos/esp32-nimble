@@ -21,16 +21,7 @@ cfg_if::cfg_if! {
       esp_idf_version_major = "5",
       esp_idf_version_minor = "2",
       not(any(esp_idf_version_patch = "0", esp_idf_version_patch = "1", esp_idf_version_patch="2"))),
-    all(
-      esp_idf_version_major = "5",
-      esp_idf_version_minor = "3",
-      not(any(esp_idf_version_patch = "0", esp_idf_version_patch = "1"))),
-    all(
-      esp_idf_version_major = "5",
-      esp_idf_version_minor = "4"),
-    all(
-      esp_idf_version_major = "5",
-      esp_idf_version_minor = "5"),
+    esp_idf_version_at_least_5_3_2,
   ))] {
     type NotifyTxType = sys::ble_gap_event__bindgen_ty_1__bindgen_ty_12;
     type Subscribe = sys::ble_gap_event__bindgen_ty_1__bindgen_ty_13;

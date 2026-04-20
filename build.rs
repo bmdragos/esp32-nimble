@@ -7,6 +7,7 @@ fn main() {
     println!("cargo::rustc-check-cfg=cfg(esp_idf_soc_esp_nimble_controller)");
     println!("cargo::rustc-check-cfg=cfg(esp_idf_bt_nimble_ext_adv)");
 
+    println!("cargo::rustc-check-cfg=cfg(esp_idf_version_at_least_5_3_2)");
     println!("cargo::rustc-check-cfg=cfg(esp_idf_version_at_least_5_4_2)");
 
     println!(r#"cargo::rustc-check-cfg=cfg(esp_idf_version_major, values("4", "5"))"#);
