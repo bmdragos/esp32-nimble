@@ -71,24 +71,15 @@ bitflags! {
     /// Indications are Sent from Server to Client where Server expects a Response
     const INDICATE = sys::BLE_GATT_CHR_F_INDICATE as _;
 
-    #[cfg(all(
-      esp_idf_version_major = "5",
-      esp_idf_version_minor = "4",
-      not(any(esp_idf_version_patch = "0", esp_idf_version_patch = "1"))))]
+    #[cfg(esp_idf_version_at_least_5_4_2)]
     /// CCCD Write Encrypted
     const NOTIFY_INDICATE_ENC = sys::BLE_GATT_CHR_F_NOTIFY_INDICATE_ENC as _;
 
-    #[cfg(all(
-      esp_idf_version_major = "5",
-      esp_idf_version_minor = "4",
-      not(any(esp_idf_version_patch = "0", esp_idf_version_patch = "1"))))]
+    #[cfg(esp_idf_version_at_least_5_4_2)]
     /// CCCD Write Authenticated
     const NOTIFY_INDICATE_AUTHEN = sys::BLE_GATT_CHR_F_NOTIFY_INDICATE_AUTHEN as _;
 
-    #[cfg(all(
-      esp_idf_version_major = "5",
-      esp_idf_version_minor = "4",
-      not(any(esp_idf_version_patch = "0", esp_idf_version_patch = "1"))))]
+    #[cfg(esp_idf_version_at_least_5_4_2)]
     /// CCCD Write Authorized
     const NOTIFY_INDICATE_AUTHOR = sys::BLE_GATT_CHR_F_NOTIFY_INDICATE_AUTHOR  as _;
   }
